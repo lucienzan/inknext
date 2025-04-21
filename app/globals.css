@@ -158,6 +158,6 @@
   }
 
   .outline-primary-btn {
-    @apply px-4 py-2 rounded-md border border-primary bg-white text-primary text-sm hover:shadow-[4px_4px_0px_0px_#433878] font-medium transition duration-200 cursor-pointer
+    @apply px-4 py-2 rounded-md border border-primary bg-white text-primary text-sm hover:shadow-[4px_4px_0px_0px_#433878] focus:shadow-[4px_4px_0px_0px_#433878] font-medium transition duration-200 cursor-pointer
   }
 }

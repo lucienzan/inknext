@@ -1,12 +1,12 @@
 import { AuroraText } from "@/components/magicui/aurora-text";
-import SearchForm from "../components/SearchForm";
+import SearchForm from "../../components/SearchForm";
 
 export default async function Home({
   searchParams,
 }: {
   searchParams: Promise<{ query?: string }>;
 }) {
-  const query = await (await searchParams).query;
+  const query = (await searchParams).query;
   return (
     <>
       <div className="isolate px-6 pt-14 lg:px-8">
