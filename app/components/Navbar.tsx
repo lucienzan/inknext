@@ -49,7 +49,7 @@ const Navbar = async () => {
                   await signOut({ redirectTo: "/" });
                 }}
               >
-                <button type="submit" className="cursor-pointer">
+                <button type="submit" className="outline-primary-btn">
                   Logout
                 </button>
               </form>
@@ -90,7 +90,10 @@ const Navbar = async () => {
                   await signIn("google");
                 }}
               >
-                <button type="submit" className="cursor-pointer">
+                <button
+                  type="submit"
+                  className="outline-primary-btn"
+                >
                   Login
                 </button>
               </form>
