@@ -1,5 +1,6 @@
 import { AuroraText } from "@/components/magicui/aurora-text";
 import SearchForm from "../../components/SearchForm";
+import StartupCard from "@/components/StartupCard";
 
 export default async function Home({
   searchParams,
@@ -40,6 +41,15 @@ export default async function Home({
             </div>
           </div>
         </div>
+        {/*Startup search name*/}
+        <section className="pt-14 py-20 max-w-6xl mx-auto">
+          <p className="text-xl font-semibold pb-[28px]">
+            {query ? `Search results for "${query}"` : "All Startups"}
+          </p>
+          <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+            <StartupCard />
+          </ul>
+        </section>
       </div>
     </>
   );

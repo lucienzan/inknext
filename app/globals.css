@@ -160,4 +160,12 @@
   .outline-primary-btn {
     @apply px-4 py-2 rounded-md border border-primary bg-white text-primary text-sm hover:shadow-[4px_4px_0px_0px_#433878] focus:shadow-[4px_4px_0px_0px_#433878] font-medium transition duration-200 cursor-pointer
   }
+
+  .badge {
+    @apply inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-md text-xs font-medium border border-gray-200 bg-white text-gray-800 shadow-2xs dark:bg-neutral-900 dark:border-neutral-700 dark:text-white transition hover:border-primary hover:text-primary ease-linear
+  }
+
+  .startup-card {
+    @apply flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70 p-4 md:p-5
+  }
 }
