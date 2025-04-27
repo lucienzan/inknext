@@ -1,6 +1,7 @@
 import { UserIcon } from "lucide-react";
 import { defineField, defineType } from "sanity";
 import { apiVersion } from "../env";
+import { v4 as uuid } from "uuid";
 
 export const author = defineType({
   name: "author",
@@ -11,6 +12,8 @@ export const author = defineType({
     defineField({
       name: "id",
       type: "string",
+      readOnly: true,
+      initialValue: () => uuid()
     }),
     defineField({
       name: "name",
@@ -37,6 +40,7 @@ export const author = defineType({
             const { document } = context;
             const client = context.getClient({ apiVersion: apiVersion });
 
+            // GROQ query to check for existing authors with the same email
             const query = `
           *[_type == "author" && email == $email && _id != $currentId] {
             _id

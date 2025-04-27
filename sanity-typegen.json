@@ -1,0 +1,5 @@
+{
+  "path": "../ink-next/src/**/*.{ts,tsx,js,jsx}",
+  "schema": "../ink-next/sanity/schema.json",
+  "generates": "../ink-next/sanity/types.ts"
+}

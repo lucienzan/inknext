@@ -1,6 +1,8 @@
 import { AuroraText } from "@/components/magicui/aurora-text";
 import SearchForm from "../../components/SearchForm";
-import StartupCard from "@/components/StartupCard";
+import StartupCard, { StartupProps } from "@/components/StartupCard";
+import { startupQuery } from "@/sanity/lib/queries";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 
 export default async function Home({
   searchParams,
@@ -8,6 +10,8 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+  const params = { search: query || null };
+  const { data: posts } = await sanityFetch({query: startupQuery, params});
   return (
     <>
       <div className="isolate px-6 pt-14 lg:px-8">
@@ -47,10 +51,17 @@ export default async function Home({
             {query ? `Search results for "${query}"` : "All Startups"}
           </p>
           <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-            <StartupCard />
+            {posts?.length > 0 ? (
+              posts.map((post: StartupProps) => (
+                <StartupCard key={post._id} startup={post} />
+              ))
+            ) : (
+              <p className="text-center col-span-12">No startup available</p>
+            )}
           </ul>
         </section>
       </div>
+      <SanityLive/>
     </>
   );
 }

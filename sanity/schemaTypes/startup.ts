@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { apiVersion } from '../../sanity/env';
+import { v4 as uuid } from "uuid";
 
 export const startup = defineType({
   name: "startup",
@@ -8,7 +9,9 @@ export const startup = defineType({
   fields: [
     defineField({
       name: "id",
-      type: "string"
+      type: "string",
+      readOnly: true,
+      initialValue: () => uuid()
     }),
     defineField({
       name: "title",
