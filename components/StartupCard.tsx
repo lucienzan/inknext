@@ -8,7 +8,7 @@ import React from "react";
 export type StartupProps = Omit<Startup, "author"> & { author?: Author };
 
 const StartupCard = ({ startup }: {startup: StartupProps}) => {
-  const { title, description, slug, image, views, author, category, _createdAt } = startup;
+  const { _id, title, description, slug, image, views, author, category, _createdAt } = startup;
   return (
     <li className="startup-card">
       <div className="pb-4">
@@ -29,14 +29,14 @@ const StartupCard = ({ startup }: {startup: StartupProps}) => {
                 {author?.name}
               </p>
             </Link>
-            <Link href={`/startup/${slug?.current}`}>
+            <Link href={`/intNext/${_id}`}>
               <h3 className="text-lg font-bold text-gray-800 dark:text-white">
                 {title}
               </h3>
             </Link>
           </div>
         </div>
-        <Link href={`/startup/${slug?.current}`}>
+        <Link href={`/intNext/${_id}`}>
           <p className="mt-2 text-gray-500 dark:text-neutral-400">
             {extractDescription(description || "")}
           </p>
